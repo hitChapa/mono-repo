@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "module": "commonjs",
+    "newLine": "LF",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es6"
+  }
+}

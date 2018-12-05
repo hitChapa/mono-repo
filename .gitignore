@@ -1,0 +1,15 @@
+node_modules/
+dist/
+npm-debug.log
+nohup.out
+dump.rdb
+newrelic_agent.log
+.DS_Store
+.idea/
+spmdb
+*.js
+*.map
+typings/
+schema1/
+*.log
+.vscode/

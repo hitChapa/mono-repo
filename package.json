@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "lint": "yarn tsfiles | xargs tslint",
+    "lint:diff": "git diff --cached --name-only | grep '.ts$' | xargs tslint",
+    "lint:diff:fix": "git diff --cached --name-only | grep '.ts$' | xargs tslint --fix",
+    "lint:fix": "yarn tsfiles | xargs tslint --fix",
+    "postinstall": "tsc",
+    "tsfiles": "git ls-files | grep '.ts$'",
+    "prettier": "yarn tsfiles | xargs prettier --print-width 80 --single-quote --no-semi --no-bracket-spacing --write",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^1.0.5",
+    "config": "^3.0.0",
+    "cors": "^2.8.5",
+    "dataloader": "^1.4.0",
+    "express": "^4.16.4",
+    "gql-request": "^1.0.0",
+    "gql-test-user": "^1.0.5",
+    "gql-utility": "^1.0.1",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
+    "merge-graphql-schemas": "^1.5.8",
+    "nodemon": "^1.18.7"
+  },
+  "devDependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  }
+}

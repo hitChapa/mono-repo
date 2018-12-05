@@ -8,21 +8,22 @@ import R = require('ramda')
 const cors = require('cors')
 import {graphiqlExpress, graphqlExpress} from 'apollo-server-express'
 import {http} from 'gql-request'
+import {accountLoaders, accountSchema} from 'gql-test-account'
+import {accountResolver} from 'gql-test-account/resolver'
 import {userLoaders, userSchema} from 'gql-test-user'
 import {userResolver} from 'gql-test-user/resolver'
 import {makeExecutableSchema} from 'graphql-tools'
 import {mergeTypes} from 'merge-graphql-schemas'
 
 const app = express()
-
 app.use(cors({credentials: true, origin: true}))
-const typeDefs = mergeTypes([userSchema])
-
+const typeDefs = mergeTypes([userSchema, accountSchema])
 const Schema = makeExecutableSchema({
   typeDefs: [typeDefs],
   resolvers: {
     Query: {
-      user: userResolver
+      user: userResolver,
+      account: accountResolver
     }
   }
 })
@@ -30,7 +31,7 @@ app.use(bodyParser.json())
 app.use(
   '/graphql',
   graphqlExpress(request => {
-    const loader = R.applySpec(R.mergeAll([userLoaders]))(
+    const loader = R.applySpec(R.mergeAll([userLoaders, accountLoaders]))(
       {HTTP: http(config)},
       request
     )

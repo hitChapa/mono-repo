@@ -16,6 +16,7 @@
     "dataloader": "^1.4.0",
     "express": "^4.16.4",
     "gql-request": "^1.0.0",
+    "gql-test-account": "^1.0.0",
     "gql-test-user": "^1.0.5",
     "gql-utility": "^1.0.1",
     "graphql": "^14.0.2",
